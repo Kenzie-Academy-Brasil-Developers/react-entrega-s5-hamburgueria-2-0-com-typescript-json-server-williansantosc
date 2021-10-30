@@ -9,8 +9,13 @@ import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 import { FaTrash } from "react-icons/fa";
 import { useCart } from "../../Providers/Cart";
 import { useState } from "react";
+import { CartProps } from "../../types/cart";
 
-function CartProduct({ product }) {
+interface CartProductProps {
+  product: CartProps;
+}
+
+function CartProduct({ product }: CartProductProps) {
   const { id, name, img, price, subtotal } = product;
   const { deleteProductFromCart, updateProductSubtotal } = useCart();
   const [count, setCount] = useState(1);

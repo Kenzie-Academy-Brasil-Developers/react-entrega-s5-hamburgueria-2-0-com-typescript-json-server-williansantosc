@@ -41,7 +41,7 @@ function Login() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<DataProps>({
     resolver: yupResolver(formSchema),
   });
 

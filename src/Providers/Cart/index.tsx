@@ -11,6 +11,7 @@ import api from "../../services/api";
 import { ChildrenProps } from "../../types/children";
 import { ProductsProps } from "../../types/products";
 import { useAuth } from "../Authorization";
+import { CartProps } from "../../types/cart";
 
 interface CartContextProps {
   addProductToCart: (product: ProductsProps, history: History) => void;
@@ -24,15 +25,6 @@ interface CartContextProps {
 export const CartContext = createContext<CartContextProps>(
   {} as CartContextProps
 );
-
-interface CartProps {
-  category: string;
-  id: number;
-  img: string;
-  name: string;
-  price: number;
-  userId: number;
-}
 
 export const CartProvider = ({ children }: ChildrenProps) => {
   const { token, id } = useAuth();

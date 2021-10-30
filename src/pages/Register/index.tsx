@@ -24,6 +24,13 @@ interface DataProps {
   password: string;
 }
 
+interface FormProps {
+  email: string;
+  password: string;
+  username: string;
+  confirmPassword: string;
+}
+
 function Register() {
   const [showPassword, setShowPassword] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState(false);
@@ -52,7 +59,7 @@ function Register() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
+  } = useForm<FormProps>({
     resolver: yupResolver(formSchema),
   });
 

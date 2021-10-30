@@ -4,12 +4,16 @@ import { Bag, Container, Footer, Header, MainContainer } from "./style";
 import { IoMdClose } from "react-icons/io";
 import Button from "../Button";
 
-function Cart({ setShow }) {
+interface CartProps {
+  setShow: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function Cart({ setShow }: CartProps) {
   const { cart, removeAllFromCart } = useCart();
 
   const totalPrice = cart.reduce((acc, product) => acc + product.subtotal, 0);
 
-  function formatPrice(value) {
+  function formatPrice(value: number) {
     return value.toLocaleString("pt-br", {
       style: "currency",
       currency: "BRL",
